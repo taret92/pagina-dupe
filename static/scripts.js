@@ -133,3 +133,76 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.product-slider');
+    if (!slider) return;
+    const productList = slider.querySelector('.product-list');
+    const products = productList.querySelectorAll('.product-box');
+    const prevBtn = slider.querySelector('.prev-btn');
+    const nextBtn = slider.querySelector('.next-btn');
+    const visibleCount = 4;
+    let start = 0;
+
+    function getBoxWidth() {
+        // Calcula el ancho real incluyendo margen
+        const style = window.getComputedStyle(products[0]);
+        const width = products[0].offsetWidth;
+        const marginLeft = parseInt(style.marginLeft) || 0;
+        const marginRight = parseInt(style.marginRight) || 0;
+        return width + marginLeft + marginRight;
+    }
+
+    function updateSlider() {
+        const boxWidth = getBoxWidth();
+        const maxStart = Math.max(0, products.length - visibleCount);
+        const offset = -start * boxWidth;
+        productList.style.transform = `translateX(${offset}px)`;
+        prevBtn.disabled = start === 0;
+        nextBtn.disabled = start >= maxStart;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (start > 0) {
+            start--;
+            updateSlider();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (start < products.length - visibleCount) {
+            start++;
+            updateSlider();
+        }
+    });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.product-image');
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.close-modal');
+
+    images.forEach(img => {
+        img.addEventListener('click', function() {  
+            modal.classList.add('open');
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+        });
+    });
+
+    closeBtn.addEventListener('click', function() {
+        modal.classList.remove('open');
+        modalImg.src = '';
+    });
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('open');
+            modalImg.src = '';
+        }
+    });
+});

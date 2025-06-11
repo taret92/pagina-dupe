@@ -9,14 +9,13 @@
 
 body {
     font-family: 'Monda', Arial, sans-serif;
-    background: #fafafa;
     color: #222;
-        background-color: #060505;
+    background-color: #ffffff;
 }
 
 /* Header */
 header {
-    background: #000000;
+    background: #ffffff;
     box-shadow: 0 2px 4px rgba(222, 236, 28, 0.05);
     padding: 10px 20px;
     display: flex;
@@ -69,7 +68,8 @@ nav .menu {
 }
 
 .menu a:hover {
-    color: #222;
+    color: #000000;
+    background-color: #bfa14a;
 }
 
 .submenu {
@@ -202,6 +202,11 @@ nav .menu {
     margin-bottom: 8px;
 }
 
+.category img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
 .category h3 {
     font-size: 2em;
     color: #bfa14a;
@@ -220,30 +225,64 @@ nav .menu {
 }
 
 .products-section p {
+    font-size: 30px;
     margin-bottom: 20px;
+}
+
+.product-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    position: relative;
 }
 
 .product-list {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0;
+    margin: 0 10px;
     list-style: none;
+    transition: transform 0.4s cubic-bezier(.4,2,.6,1);
 }
 
 .product-box {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 15px;
-    width: auto;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    width: 300px;
+    height: 400px;
+    margin: 0 10px;
+    flex-shrink: 0;
+}
+
+.slider-btn {
+    background: #bfa14a;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 1.6em;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(191,161,74,0.15);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    z-index: 2;
+}
+
+.slider-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 .product-image {
-    width: 300px;
-    height: 400px;
+    width: 150px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -283,8 +322,8 @@ nav .menu {
 }
 
 .whatsapp-float img {
-    width: 55px;
-    height: 55px;
+    width: 85px;
+    height: 85px;
 }
 
 /* Footer */
@@ -384,11 +423,23 @@ footer .redes-sociales a:hover {
     transform: translateY(-50%);
 }
 
+/* Hover para el botón Productos en menú móvil */
+.mobile-nav .submenu-toggle:hover,
+.mobile-nav .submenu-toggle:focus {
+    color: #222; /* Cambia el color del texto si lo deseas */
+    transition: background 0.2s, color 0.2s;
+}
+
 @media (max-width: 900px) {
     .categories, .carousel, .product-list {
         flex-direction: column;
         align-items: center;
     }
+
+    .category img:hover {
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
     .categories {
         gap: 20px;
     }
@@ -488,4 +539,66 @@ footer .redes-sociales a:hover {
     .category h3 {
         font-size: 1.5em;
     }
+    
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (min-width: 901px) {
+    .product-box {
+        transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+    }
+    .product-box:hover,
+    .product-box:focus-within {
+        transform: scale(1.07);
+        box-shadow: 0 6px 24px rgba(191,161,74,0.18);
+        z-index: 2;
+    }
+}
+
+/* Estilos para el modal de imagen */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+.image-modal.open {
+    display: flex;
+}
+
+.image-modal .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    animation: zoomIn 0.3s;
+}
+
+.image-modal .close-modal {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fffbe7;
+    font-size: 3em;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7);}
+    to { transform: scale(1);}
 }
