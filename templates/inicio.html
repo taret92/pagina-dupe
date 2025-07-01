@@ -29,7 +29,7 @@
         </div>
         <div class="category">
             <img src="{{ url_for('static', filename='imagen3.png') }}" alt="Árabes">
-            <h3>Árabes</h3>
+            <h3>Perfumes Árabes</h3>
         </div>
     </section>
 
@@ -37,103 +37,68 @@
     <section class="products-section">
         <h2>Nuestros Recomendados</h2>
         <p>Perfumes que cautivan en cualquier ocasión.</p>
-        <div class="product-slider">
-            <button class="slider-btn prev-btn" aria-label="Anterior">&lt;</button>
-            <ul class="product-list">
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='asad.jpg') }}" alt="Producto 1" class="product-image">
-                    <h4>Producto 1</h4>
-                    <p>Descripción breve del producto 1.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='niche femme.jpg') }}" alt="Producto 2" class="product-image">
-                    <h4>Producto 2</h4>
-                    <p>Descripción breve del producto 2.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='imagen3.png') }}" alt="Producto 3" class="product-image">
-                    <h4>Producto 3</h4>
-                    <p>Descripción breve del producto 3.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='imagen2.png') }}" alt="Producto 4" class="product-image">
-                    <h4>Producto 4</h4>
-                    <p>Descripción breve del producto 4.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto5.webp') }}" alt="Producto 5" class="product-image">
-                    <h4>Producto 5</h4>
-                    <p>Descripción breve del producto 5.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto6.webp') }}" alt="Producto 6" class="product-image">
-                    <h4>Producto 6</h4>
-                    <p>Descripción breve del producto 6.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto7.webp') }}" alt="Producto 7" class="product-image">
-                    <h4>Producto 7</h4>
-                    <p>Descripción breve del producto 7.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto8.webp') }}" alt="Producto 8" class="product-image">
-                    <h4>Producto 8</h4>
-                    <p>Descripción breve del producto 8.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto9.webp') }}" alt="Producto 9" class="product-image">
-                    <h4>Producto 9</h4>
-                    <p>Descripción breve del producto 9.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto10.webp') }}" alt="Producto 10" class="product-image">
-                    <h4>Producto 10</h4>
-                    <p>Descripción breve del producto 10.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto11.webp') }}" alt="Producto 11" class="product-image">
-                    <h4>Producto 11</h4>
-                    <p>Descripción breve del producto 11.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto12.webp') }}" alt="Producto 12" class="product-image">
-                    <h4>Producto 12</h4>
-                    <p>Descripción breve del producto 12.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto13.webp') }}" alt="Producto 13" class="product-image">
-                    <h4>Producto 13</h4>
-                    <p>Descripción breve del producto 13.</p>
-                    <button>Ver más</button>
-                </li>
-                <li class="product-box">
-                    <img src="{{ url_for('static', filename='producto14.webp') }}" alt="Producto 14" class="product-image">
-                    <h4>Producto 14</h4>
-                    <p>Descripción breve del producto 14.</p>
-                    <button>Ver más</button>
-                <!-- Agrega más productos aquí -->
-            </ul>
-            <button class="slider-btn next-btn" aria-label="Siguiente">&gt;</button>
-        </div>
+        
     </section>
     <!-- Modal para imagen ampliada -->
 <div id="image-modal" class="image-modal">
   <span class="close-modal">&times;</span>
   <img class="modal-content" id="modal-img">
 </div>
+<section class="espacioslider">
+<!-- Slider de productos sugeridos -->
+<div class="suggested-slider">
+    <button class="suggested-btn prev-btn" aria-label="Anterior">&lt;</button>
+    <div class="suggested-track">
+        <div class="suggested-product">
+            <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1" class="suggested-image">
+            <div class="suggested-desc">Perfume floral, elegante y fresco.</div>
+        </div>
+        <div class="suggested-product">
+            <img src="{{ url_for('static', filename='imagen2.png') }}" alt="Producto 2" class="suggested-image">
+            <div class="suggested-desc">Aromas cítricos para él y para ella.</div>
+        </div>
+        <div class="suggested-product">
+            <img src="{{ url_for('static', filename='imagen3.png') }}" alt="Producto 3" class="suggested-image">
+            <div class="suggested-desc">Notas orientales y misteriosas.</div>
+        </div>
+        <div class="suggested-product">
+            <img src="{{ url_for('static', filename='imagen4.png') }}" alt="Producto 4" class="suggested-image">
+            <div class="suggested-desc">Fragancia dulce y juvenil.</div>
+        </div>
+        <div class="suggested-product">
+            <img src="{{ url_for('static', filename='imagen4.png') }}" alt="Producto 5" class="suggested-image">
+            <div class="suggested-desc">Fragancia dulce y juvenil.</div>
+        </div>
+        <!-- Agrega más productos aquí -->
+    </div>
+    <button class="suggested-btn next-btn" aria-label="Siguiente">&gt;</button>
+</div>
+</section>
+
+<section class="body-inicio">
+    <div class="inicio-contenido">
+        <h2>¿Quiénes somos?</h2>
+        <p>Somos una empresa dedicada a la venta de perfumes de alta calidad, ofreciendo una amplia variedad
+            de fragancias para todos los gustos y ocasiones. 
+            Nuestro compromiso es brindar productos excepcionales que realcen tu esencia y te hagan sentir especial.</p>
+    </div>
+
+    <div class="fotos-inicio">
+        <div class="imagen-descripcion-inicio"><img src="{{ url_for('static', filename='imagen1.png') }}" alt="Imagen 1" class="foto-inicio">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam amet non inventore nisi quibusdam? Alias ut impedit ipsum quis laudantium, a quisquam, quae pariatur nulla magni est doloremque distinctio iusto.</p>
+        </div>
+        <div class="imagen-descripcion-inicio">
+        <img src="{{ url_for('static', filename='imagen2.png') }}" alt="Imagen 2" class="foto-inicio">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam amet non inventore nisi quibusdam? Alias ut impedit ipsum quis laudantium, a quisquam, quae pariatur nulla magni est doloremque distinctio iusto.</p>
+        </div>
+        <div class="imagen-descripcion-inicio">
+        <img src="{{ url_for('static', filename='imagen3.png') }}" alt="Imagen 3" class="foto-inicio">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam amet non inventore nisi quibusdam? Alias ut impedit ipsum quis laudantium, a quisquam, quae pariatur nulla magni est doloremque distinctio iusto.</p>
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
 </body>
-</html>

@@ -135,52 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.product-slider');
-    if (!slider) return;
-    const productList = slider.querySelector('.product-list');
-    const products = productList.querySelectorAll('.product-box');
-    const prevBtn = slider.querySelector('.prev-btn');
-    const nextBtn = slider.querySelector('.next-btn');
-    const visibleCount = 4;
-    let start = 0;
-
-    function getBoxWidth() {
-        // Calcula el ancho real incluyendo margen
-        const style = window.getComputedStyle(products[0]);
-        const width = products[0].offsetWidth;
-        const marginLeft = parseInt(style.marginLeft) || 0;
-        const marginRight = parseInt(style.marginRight) || 0;
-        return width + marginLeft + marginRight;
-    }
-
-    function updateSlider() {
-        const boxWidth = getBoxWidth();
-        const maxStart = Math.max(0, products.length - visibleCount);
-        const offset = -start * boxWidth;
-        productList.style.transform = `translateX(${offset}px)`;
-        prevBtn.disabled = start === 0;
-        nextBtn.disabled = start >= maxStart;
-    }
-
-    prevBtn.addEventListener('click', () => {
-        if (start > 0) {
-            start--;
-            updateSlider();
-        }
-    });
-
-    nextBtn.addEventListener('click', () => {
-        if (start < products.length - visibleCount) {
-            start++;
-            updateSlider();
-        }
-    });
-
-    window.addEventListener('resize', updateSlider);
-    updateSlider();
-});
-
-document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('.product-image');
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-img');
@@ -204,5 +158,75 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.classList.remove('open');
             modalImg.src = '';
         }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.suggested-slider');
+    if (!slider) return;
+    const track = slider.querySelector('.suggested-track');
+    const products = track.querySelectorAll('.suggested-product');
+    const prevBtn = slider.querySelector('.prev-btn');
+    const nextBtn = slider.querySelector('.next-btn');
+    const visibleCount = 4; // Cambia a 4 para mostrar 4 productos
+    let start = 0;
+
+    function getProductWidth() {
+        const style = window.getComputedStyle(products[0]);
+        const width = products[0].offsetWidth;
+        const marginLeft = parseInt(style.marginLeft) || 0;
+        const marginRight = parseInt(style.marginRight) || 0;
+        return width + marginLeft + marginRight;
+    }
+
+    function updateSlider() {
+        const prodWidth = getProductWidth();
+        const maxStart = Math.max(0, products.length - visibleCount);
+        if (start > maxStart) start = 0;
+        const offset = -start * prodWidth;
+        track.style.transform = `translateX(${offset}px)`;
+
+        // Añade o quita la clase 'inactive' según corresponda
+        if (start === 0) {
+            prevBtn.classList.add('inactive');
+        } else {
+            prevBtn.classList.remove('inactive');
+        }
+        if (start >= maxStart) {
+            nextBtn.classList.add('inactive');
+        } else {
+            nextBtn.classList.remove('inactive');
+        }
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (start > 0) {
+            start--;
+            updateSlider();
+        }
+        // Si ya está en el inicio, no hace nada pero el botón sigue visible
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (start < products.length - visibleCount) {
+            start++;
+            updateSlider();
+        }
+        // Si ya está en el final, no hace nada pero el botón sigue visible
+    });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+
+    // Abrir imagen en modal al hacer click
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.close-modal');
+    track.querySelectorAll('.suggested-image').forEach(img => {
+        img.addEventListener('click', function() {
+            modal.classList.add('open');
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+        });
     });
 });
