@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+
+<body>
+{% block content %}
+<section class="bannerproductos">
+    <div class="carousel">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Imagen 1">
+        <img src="{{ url_for('static', filename='imagen2.png') }}" alt="Imagen 2">
+        <img src="{{ url_for('static', filename='imagen3.png') }}" alt="Imagen 3">
+        <img src="{{ url_for('static', filename='imagen4.png') }}" alt="Imagen 4">
+    </div>
+    </section><!-- Banner de productos -->
+
+
+<section class="productos-grid">
+    <div class="producto">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1">
+        <h4>Producto 1</h4>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='producto2.jpg') }}" alt="Producto 2">
+        <h4>Producto 2</h4>
+        <p>Descripción breve del producto 2.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='producto3.jpg') }}" alt="Producto 3">
+        <h4>Producto 3</h4>
+        <p>Descripción breve del producto 3.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='producto4.jpg') }}" alt="Producto 4">
+        <h4>Producto 4</h4>
+        <p>Descripción breve del producto 4.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='producto5.jpg') }}" alt="Producto 5">
+        <h4>Producto 5</h4>
+        <p>Descripción breve del producto 5.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1">
+        <h4>Producto 1</h4>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1">
+        <h4>Producto 1</h4>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1">
+        <h4>Producto 1</h4>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1">
+        <h4>Producto 1</h4>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1">
+        <h4>Producto 1</h4>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1">
+        <h4>Producto 1</h4>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <div class="producto">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Producto 1">
+        <h4>Producto 1</h4>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <!-- Agrega más productos aquí si lo deseas -->
+</section>
+{% endblock %}
+</body>

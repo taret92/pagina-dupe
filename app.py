@@ -5,10 +5,17 @@ app = Flask(__name__)
 def home():
     return render_template('inicio.html')
 
-@app.route('/productos')
-def productos():
-    return render_template('productos.html')
+@app.route('/hombre')
+def hombre():
+    return render_template('hombre.html')
 
+@app.route('/mujer')
+def mujer():
+    return render_template('mujer.html')
+
+@app.route('/arabes')
+def arabes():
+    return render_template('arabes.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
